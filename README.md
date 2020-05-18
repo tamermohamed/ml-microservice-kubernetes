@@ -52,7 +52,7 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 from command line run make file
 - ```makefile setup``` this command will create your python environment
-- ```make install`` this will install all the packages the application need to run
+- ```make install``` this will install all the packages the application need to run
 - ```makefile lint``` validate your python syntax using <b>pylint</b>, and validate the dockerfile that it has no errors using <b>hadolint</b>
 - ```./run_docker.sh``` to bulild image from dockerfile, list all your docker images, then run the docker image
 - run ```./make_prediction.sh```, this call the application that running on docker and make the prediction, you can find the result on the terminal where you run run ```./run_docker.sh```
