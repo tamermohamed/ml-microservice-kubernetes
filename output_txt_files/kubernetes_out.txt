@@ -1,0 +1,60 @@
+------------------------------------------Prediction Ouput--------------------------------------------------------
+
+* Serving Flask app "app" (lazy loading)
+
+* Environment: production
+
+WARNING: Do not use the development server in a production environment.
+
+Use a production WSGI server instead.
+
+* Debug mode: on
+
+* Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+
+* Restarting with stat
+
+* Debugger is active!
+
+* Debugger PIN: 192-558-263
+
+[2020-05-18 21:37:29,437] INFO in app: JSON payload:
+
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+
+[2020-05-18 21:37:29,454] INFO in app: Inference payload DataFrame:
+
+CHAS ... LSTAT
+
+0 0 ... 4.98
+
+
+[1 rows x 6 columns]
+
+[2020-05-18 21:37:29,468] INFO in app: Scaling Payload:
+
+[2020-05-18 21:37:29,471] INFO in app: [20.35373177134412]
+
+127.0.0.1 - - [18/May/2020 21:37:29] "POST /predict HTTP/1.1" 200 -
+
+
+λ ./run_kubernetes.sh
+If you don't see a command prompt, try pressing enter.
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 192-558-263
+^CSession ended, resume using 'kubectl attach ml-flask-docker -c ml-flask-docker -i -t' command when the pod is running
+NAME                        READY   STATUS      RESTARTS   AGE
+ml-flask-docker             0/1     Completed   0          9s
+my-nginx-6f46c448b9-cjn86   1/1     Running     0          2d3h
+my-nginx-6f46c448b9-ggfhv   1/1     Running     0          2d3h
+my-nginx-6f46c448b9-kb4hz   1/1     Running     0          2d3h
+my-nginx-6f46c448b9-vz6lt   1/1     Running     0          2d3h
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80

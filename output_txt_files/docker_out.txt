@@ -1,0 +1,142 @@
+* Serving Flask app "app" (lazy loading)
+
+* Environment: production
+
+WARNING: Do not use the development server in a production environment.
+
+Use a production WSGI server instead.
+
+* Debug mode: on
+
+* Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+
+* Restarting with stat
+
+* Debugger is active!
+
+* Debugger PIN: 158-197-352
+
+[2020-05-18 21:13:55,150] INFO in app: JSON payload:
+
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+
+[2020-05-18 21:13:55,164] INFO in app: Inference payload DataFrame:
+
+CHAS RM TAX PTRATIO B LSTAT
+
+0 0 6.575 296.0 15.3 396.9 4.98
+
+[2020-05-18 21:13:55,175] INFO in app: Scaling Payload:
+
+[2020-05-18 21:13:55,178] INFO in app: [20.35373177134412]
+
+172.17.0.1 - - [18/May/2020 21:13:55] "POST /predict HTTP/1.1" 200 -
+
+
+
+-------------------------------Docker output-------------------------------------------------
+
+λ ./run_docker.sh
+Sending build context to Docker daemon  1.193MB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> f64a25230669
+Step 3/6 : COPY  .  /app/
+ ---> 2cf38b956956
+Step 4/6 : RUN pip install --upgrade pip &&    pip install --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in 015a85c18e09
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/54/2e/df11ea7e23e7e761d484ed3740285a34e38548cf2bad2bed3dd5768ec8b9/pip-20.1-py2.py3-none-any.whl (1.5MB)
+Installing collected packages: pip
+  Found existing installation: pip 19.1.1
+    Uninstalling pip-19.1.1:
+      Successfully uninstalled pip-19.1.1
+Successfully installed pip-20.1
+Collecting Click==7.0
+  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
+Collecting Flask==1.0.2
+  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
+Collecting itsdangerous==1.1.0
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Jinja2==2.10.3
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
+Collecting MarkupSafe==1.1.1
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl (27 kB)
+Collecting numpy==1.17.2
+  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
+Collecting pandas==0.24.2
+  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
+Collecting python-dateutil==2.8.0
+  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
+Collecting pytz==2019.3
+  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+Collecting scikit-learn==0.20.3
+  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
+Collecting scipy==1.3.1
+  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
+Collecting six==1.12.0
+  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting Werkzeug==0.16.0
+  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
+Collecting pylint
+  Downloading pylint-2.5.2-py3-none-any.whl (324 kB)
+Collecting astroid<=2.5,>=2.4.0
+  Downloading astroid-2.4.1-py3-none-any.whl (214 kB)
+Collecting toml>=0.7.1
+  Downloading toml-0.10.1-py2.py3-none-any.whl (19 kB)
+Collecting isort<5,>=4.2.5
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+Collecting mccabe<0.7,>=0.6
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting lazy-object-proxy==1.4.*
+  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
+Collecting wrapt~=1.11
+  Downloading wrapt-1.12.1.tar.gz (27 kB)
+Collecting typed-ast<1.5,>=1.4.0; implementation_name == "cpython" and python_version < "3.8"
+  Downloading typed_ast-1.4.1-cp37-cp37m-manylinux1_x86_64.whl (737 kB)
+Building wheels for collected packages: wrapt
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp37-cp37m-linux_x86_64.whl size=71562 sha256=872687b3c47f9c58c44b05e1f1ec6456a6a601cfb0fed98637ec657f82e1e438
+  Stored in directory: /root/.cache/pip/wheels/62/76/4c/aa25851149f3f6d9785f6c869387ad82b3fd37582fa8147ac6
+Successfully built wrapt
+Installing collected packages: Click, Werkzeug, itsdangerous, MarkupSafe, Jinja2, Flask, numpy, pytz, six, python-dateutil, pandas, scipy, scikit-learn, lazy-object-proxy, wrapt, typed-ast, astroid, toml, isort, mccabe, pylint
+Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.4.1 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.5.2 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 toml-0.10.1 typed-ast-1.4.1 wrapt-1.12.1
+Removing intermediate container 015a85c18e09
+ ---> 41622db6c7ae
+Step 5/6 : EXPOSE 80
+ ---> Running in a0f7d7cf7449
+Removing intermediate container a0f7d7cf7449
+ ---> bf153174cb67
+Step 6/6 : CMD ["python3", "app.py"]
+ ---> Running in ca00c97ddf2c
+Removing intermediate container ca00c97ddf2c
+ ---> fe2edea914ef
+Successfully built fe2edea914ef
+Successfully tagged ml-flask-app2:latest
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+REPOSITORY                                TAG                                              IMAGE ID            CREATED                  SIZE
+ml-flask-app2                             latest                                           fe2edea914ef        Less than a second ago   1.25GB
+tamermohamed/ml-microservice-kubernetes   version1.0                                       40381856e6a4        30 minutes ago           1.25GB
+tamermohamed/ml-microservice-kubernetes   <none>                                           598b2b6843d5        31 hours ago             1.24GB
+nginx                                     alpine                                           89ec9da68213        3 weeks ago              19.9MB
+kubernetesui/dashboard                    v2.0.0                                           8b32422733b3        3 weeks ago              222MB
+kubernetesui/metrics-scraper              v1.0.4                                           86262685d9ab        7 weeks ago              36.9MB
+docker/desktop-storage-provisioner        v1.1                                             e704287ce753        7 weeks ago              41.8MB
+docker/desktop-vpnkit-controller          v1.0                                             79da37e5a3aa        2 months ago             36.6MB
+docker/desktop-kubernetes                 kubernetes-v1.16.5-cni-v0.7.5-critools-v1.15.0   a86647f0b376        3 months ago             279MB
+k8s.gcr.io/kube-controller-manager        v1.16.5                                          441835dd2301        4 months ago             151MB
+k8s.gcr.io/kube-apiserver                 v1.16.5                                          fc838b21afbb        4 months ago             159MB
+k8s.gcr.io/kube-scheduler                 v1.16.5                                          b4d073a9efda        4 months ago             83.5MB
+k8s.gcr.io/kube-proxy                     v1.16.5                                          0ee1b8a3ebe0        4 months ago             82.7MB
+docker/kube-compose-controller            v0.4.25-alpha1                                   129151cdf35f        6 months ago             35.6MB
+docker/kube-compose-api-server            v0.4.25-alpha1                                   989749268895        6 months ago             50.7MB
+docker/kube-compose-installer             v0.4.25-alpha1                                   2a71ac5a1359        6 months ago             42.3MB
+k8s.gcr.io/etcd                           3.3.15-0                                         b2756210eeab        8 months ago             247MB
+k8s.gcr.io/coredns                        1.6.2                                            bf261d157914        9 months ago             44.1MB
+python                                    3.7.3-stretch                                    34a518642c76        11 months ago            929MB
+k8s.gcr.io/pause                          3.1                                              da86e6ba6ca1        2 years ago              742kB
+a4748c811eb06014324e94c019ff46b92f720925beb5c4b2db59b38667811a82
+tamer@DESKTOP-8VN7RFV /c/Tamer/udacity/ml-microservice-kubernetes (master)
